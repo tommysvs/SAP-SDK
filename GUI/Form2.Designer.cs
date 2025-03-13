@@ -32,6 +32,7 @@ namespace GUI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmbSerieItem = new System.Windows.Forms.ComboBox();
             this.cmbGrpItem = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@ namespace GUI
             this.txtCodItem = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button4 = new System.Windows.Forms.Button();
             this.cbMonedaBP = new System.Windows.Forms.ComboBox();
@@ -65,13 +67,20 @@ namespace GUI
             this.cbSerieBP = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -81,10 +90,10 @@ namespace GUI
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(13, 13);
+            this.tabControl1.Location = new System.Drawing.Point(12, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(775, 425);
+            this.tabControl1.Size = new System.Drawing.Size(776, 425);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -93,13 +102,14 @@ namespace GUI
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(767, 396);
+            this.tabPage1.Size = new System.Drawing.Size(768, 396);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Items";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.cmbSerieItem);
             this.panel1.Controls.Add(this.cmbGrpItem);
             this.panel1.Controls.Add(this.label4);
@@ -114,10 +124,20 @@ namespace GUI
             this.panel1.Controls.Add(this.txtDescItem);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtCodItem);
-            this.panel1.Location = new System.Drawing.Point(7, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(754, 386);
+            this.panel1.Size = new System.Drawing.Size(767, 396);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI.Properties.Resources.logo_sap;
+            this.pictureBox1.Location = new System.Drawing.Point(634, 353);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
             // 
             // cmbSerieItem
             // 
@@ -182,7 +202,7 @@ namespace GUI
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(235, 335);
+            this.button3.Location = new System.Drawing.Point(235, 341);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(108, 32);
             this.button3.TabIndex = 8;
@@ -198,7 +218,7 @@ namespace GUI
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(120, 335);
+            this.button2.Location = new System.Drawing.Point(120, 341);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(109, 32);
             this.button2.TabIndex = 7;
@@ -214,7 +234,7 @@ namespace GUI
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(21, 335);
+            this.button1.Location = new System.Drawing.Point(21, 341);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 32);
             this.button1.TabIndex = 6;
@@ -270,13 +290,14 @@ namespace GUI
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(767, 396);
+            this.tabPage2.Size = new System.Drawing.Size(768, 396);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Socios de Negocios";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.cbMonedaBP);
@@ -295,8 +316,18 @@ namespace GUI
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(761, 390);
+            this.panel2.Size = new System.Drawing.Size(767, 396);
             this.panel2.TabIndex = 20;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GUI.Properties.Resources.logo_sap;
+            this.pictureBox2.Location = new System.Drawing.Point(634, 353);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(117, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
             // 
             // dateTimePicker1
             // 
@@ -314,9 +345,9 @@ namespace GUI
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(26, 338);
+            this.button4.Location = new System.Drawing.Point(21, 341);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 35);
+            this.button4.Size = new System.Drawing.Size(93, 32);
             this.button4.TabIndex = 32;
             this.button4.Text = "Crear";
             this.button4.UseVisualStyleBackColor = true;
@@ -329,7 +360,7 @@ namespace GUI
             "Cliente",
             "Proveedor",
             "Lead"});
-            this.cbMonedaBP.Location = new System.Drawing.Point(108, 202);
+            this.cbMonedaBP.Location = new System.Drawing.Point(105, 198);
             this.cbMonedaBP.Name = "cbMonedaBP";
             this.cbMonedaBP.Size = new System.Drawing.Size(156, 24);
             this.cbMonedaBP.TabIndex = 31;
@@ -337,7 +368,7 @@ namespace GUI
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(23, 209);
+            this.label11.Location = new System.Drawing.Point(20, 205);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 17);
             this.label11.TabIndex = 30;
@@ -346,7 +377,7 @@ namespace GUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(23, 149);
+            this.label10.Location = new System.Drawing.Point(20, 145);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 17);
             this.label10.TabIndex = 29;
@@ -354,7 +385,7 @@ namespace GUI
             // 
             // txtRTNBP
             // 
-            this.txtRTNBP.Location = new System.Drawing.Point(108, 144);
+            this.txtRTNBP.Location = new System.Drawing.Point(105, 140);
             this.txtRTNBP.Name = "txtRTNBP";
             this.txtRTNBP.Size = new System.Drawing.Size(156, 22);
             this.txtRTNBP.TabIndex = 28;
@@ -362,7 +393,7 @@ namespace GUI
             // cbGrupoBP
             // 
             this.cbGrupoBP.FormattingEnabled = true;
-            this.cbGrupoBP.Location = new System.Drawing.Point(108, 172);
+            this.cbGrupoBP.Location = new System.Drawing.Point(105, 168);
             this.cbGrupoBP.Name = "cbGrupoBP";
             this.cbGrupoBP.Size = new System.Drawing.Size(156, 24);
             this.cbGrupoBP.TabIndex = 27;
@@ -370,7 +401,7 @@ namespace GUI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 179);
+            this.label9.Location = new System.Drawing.Point(20, 175);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(48, 17);
             this.label9.TabIndex = 26;
@@ -383,7 +414,7 @@ namespace GUI
             "Cliente",
             "Proveedor",
             "Lead"});
-            this.cbTipoBP.Location = new System.Drawing.Point(108, 58);
+            this.cbTipoBP.Location = new System.Drawing.Point(105, 54);
             this.cbTipoBP.Name = "cbTipoBP";
             this.cbTipoBP.Size = new System.Drawing.Size(156, 24);
             this.cbTipoBP.TabIndex = 25;
@@ -392,7 +423,7 @@ namespace GUI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 65);
+            this.label8.Location = new System.Drawing.Point(20, 61);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 17);
             this.label8.TabIndex = 24;
@@ -401,7 +432,7 @@ namespace GUI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 121);
+            this.label7.Location = new System.Drawing.Point(20, 117);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 17);
             this.label7.TabIndex = 23;
@@ -409,7 +440,7 @@ namespace GUI
             // 
             // txtNombreBP
             // 
-            this.txtNombreBP.Location = new System.Drawing.Point(108, 116);
+            this.txtNombreBP.Location = new System.Drawing.Point(105, 112);
             this.txtNombreBP.Name = "txtNombreBP";
             this.txtNombreBP.Size = new System.Drawing.Size(156, 22);
             this.txtNombreBP.TabIndex = 22;
@@ -417,7 +448,7 @@ namespace GUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 93);
+            this.label6.Location = new System.Drawing.Point(20, 89);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 21;
@@ -425,7 +456,7 @@ namespace GUI
             // 
             // txtCodigoBP
             // 
-            this.txtCodigoBP.Location = new System.Drawing.Point(108, 88);
+            this.txtCodigoBP.Location = new System.Drawing.Point(105, 84);
             this.txtCodigoBP.Name = "txtCodigoBP";
             this.txtCodigoBP.Size = new System.Drawing.Size(156, 22);
             this.txtCodigoBP.TabIndex = 20;
@@ -433,7 +464,7 @@ namespace GUI
             // cbSerieBP
             // 
             this.cbSerieBP.FormattingEnabled = true;
-            this.cbSerieBP.Location = new System.Drawing.Point(108, 28);
+            this.cbSerieBP.Location = new System.Drawing.Point(105, 24);
             this.cbSerieBP.Name = "cbSerieBP";
             this.cbSerieBP.Size = new System.Drawing.Size(156, 24);
             this.cbSerieBP.TabIndex = 19;
@@ -441,7 +472,7 @@ namespace GUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 35);
+            this.label5.Location = new System.Drawing.Point(20, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 17);
             this.label5.TabIndex = 18;
@@ -449,18 +480,37 @@ namespace GUI
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(767, 396);
+            this.tabPage3.Size = new System.Drawing.Size(768, 396);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Asiento";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pictureBox3);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(767, 396);
+            this.panel3.TabIndex = 23;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GUI.Properties.Resources.logo_sap;
+            this.pictureBox3.Location = new System.Drawing.Point(634, 353);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(117, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
             // 
             // tabPage4
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(767, 396);
+            this.tabPage4.Size = new System.Drawing.Size(768, 396);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -469,7 +519,7 @@ namespace GUI
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(767, 396);
+            this.tabPage5.Size = new System.Drawing.Size(768, 396);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -487,9 +537,14 @@ namespace GUI
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -534,5 +589,9 @@ namespace GUI
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Panel panel3;
     }
 }
