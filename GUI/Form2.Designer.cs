@@ -71,6 +71,10 @@ namespace GUI
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.txtTransId1 = new System.Windows.Forms.TextBox();
+            this.txtTransId2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -93,7 +97,7 @@ namespace GUI
             this.tabControl1.Location = new System.Drawing.Point(12, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 425);
+            this.tabControl1.Size = new System.Drawing.Size(624, 425);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -102,7 +106,7 @@ namespace GUI
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 396);
+            this.tabPage1.Size = new System.Drawing.Size(616, 396);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Items";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -126,13 +130,13 @@ namespace GUI
             this.panel1.Controls.Add(this.txtCodItem);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(767, 396);
+            this.panel1.Size = new System.Drawing.Size(620, 396);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI.Properties.Resources.logo_sap;
-            this.pictureBox1.Location = new System.Drawing.Point(634, 353);
+            this.pictureBox1.Location = new System.Drawing.Point(482, 353);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,7 +171,7 @@ namespace GUI
             // chbCompra
             // 
             this.chbCompra.AutoSize = true;
-            this.chbCompra.Location = new System.Drawing.Point(598, 68);
+            this.chbCompra.Location = new System.Drawing.Point(446, 68);
             this.chbCompra.Name = "chbCompra";
             this.chbCompra.Size = new System.Drawing.Size(128, 21);
             this.chbCompra.TabIndex = 11;
@@ -177,7 +181,7 @@ namespace GUI
             // chbVenta
             // 
             this.chbVenta.AutoSize = true;
-            this.chbVenta.Location = new System.Drawing.Point(598, 41);
+            this.chbVenta.Location = new System.Drawing.Point(446, 41);
             this.chbVenta.Name = "chbVenta";
             this.chbVenta.Size = new System.Drawing.Size(116, 21);
             this.chbVenta.TabIndex = 10;
@@ -187,7 +191,7 @@ namespace GUI
             // chbInventario
             // 
             this.chbInventario.AutoSize = true;
-            this.chbInventario.Location = new System.Drawing.Point(598, 14);
+            this.chbInventario.Location = new System.Drawing.Point(446, 14);
             this.chbInventario.Name = "chbInventario";
             this.chbInventario.Size = new System.Drawing.Size(143, 21);
             this.chbInventario.TabIndex = 9;
@@ -290,7 +294,7 @@ namespace GUI
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 396);
+            this.tabPage2.Size = new System.Drawing.Size(616, 396);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Socios de Negocios";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -316,13 +320,13 @@ namespace GUI
             this.panel2.Controls.Add(this.label5);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(767, 396);
+            this.panel2.Size = new System.Drawing.Size(616, 396);
             this.panel2.TabIndex = 20;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::GUI.Properties.Resources.logo_sap;
-            this.pictureBox2.Location = new System.Drawing.Point(634, 353);
+            this.pictureBox2.Location = new System.Drawing.Point(482, 353);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(117, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -332,7 +336,7 @@ namespace GUI
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(542, 26);
+            this.dateTimePicker1.Location = new System.Drawing.Point(390, 26);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 1;
@@ -483,23 +487,27 @@ namespace GUI
             this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(768, 396);
+            this.tabPage3.Size = new System.Drawing.Size(616, 396);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Asiento";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.txtTransId2);
+            this.panel3.Controls.Add(this.txtTransId1);
+            this.panel3.Controls.Add(this.button6);
+            this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.pictureBox3);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(767, 396);
+            this.panel3.Size = new System.Drawing.Size(616, 396);
             this.panel3.TabIndex = 23;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GUI.Properties.Resources.logo_sap;
-            this.pictureBox3.Location = new System.Drawing.Point(634, 353);
+            this.pictureBox3.Location = new System.Drawing.Point(482, 353);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(117, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -524,11 +532,56 @@ namespace GUI
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkOrange;
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(25, 21);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(146, 32);
+            this.button5.TabIndex = 33;
+            this.button5.Text = "Agregar asiento";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DarkOrange;
+            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.Location = new System.Drawing.Point(25, 59);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(146, 32);
+            this.button6.TabIndex = 34;
+            this.button6.Text = "Cancelar asiento";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // txtTransId1
+            // 
+            this.txtTransId1.Location = new System.Drawing.Point(189, 26);
+            this.txtTransId1.Name = "txtTransId1";
+            this.txtTransId1.Size = new System.Drawing.Size(131, 22);
+            this.txtTransId1.TabIndex = 35;
+            // 
+            // txtTransId2
+            // 
+            this.txtTransId2.Location = new System.Drawing.Point(189, 64);
+            this.txtTransId2.Name = "txtTransId2";
+            this.txtTransId2.Size = new System.Drawing.Size(131, 22);
+            this.txtTransId2.TabIndex = 36;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(648, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form2";
             this.Text = "Entidades";
@@ -544,6 +597,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -593,5 +647,9 @@ namespace GUI
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox txtTransId2;
+        private System.Windows.Forms.TextBox txtTransId1;
     }
 }

@@ -10,10 +10,10 @@ namespace BE
     {
         public string Account { get; set; }
         public string ShortName { get; set; }
-        public string Debit { get; set; }
-        public string Credit { get; set; }
-        public string FCDebit { get; set; }
-        public string FCCredit { get; set; }
+        public double Debit { get; set; }
+        public double Credit { get; set; }
+        public double FCDebit { get; set; }
+        public double FCCredit { get; set; }
         public string FCCurrency { get; set; }
         public string Project { get; set; }
         public string OcrCode1 { get; set; }

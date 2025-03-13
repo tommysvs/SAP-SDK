@@ -302,5 +302,56 @@ namespace GUI
                 throw ex;
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                csJDT1 objLines;
+                csOJDT objAsiento = new csOJDT();
+
+                objAsiento.RefDate = DateTime.Now.ToString("yyyyMMdd");
+                objAsiento.DueDate = DateTime.Now.ToString("yyyyMMdd");
+                objAsiento.TaxDate = DateTime.Now.ToString("yyyyMMdd");
+                objAsiento.Memo = "Creado por SDK";
+                objAsiento.Ref1 = "Prueba1";
+                objAsiento.Ref2 = "Prueba2";
+                objAsiento.Ref3 = "Prueba3";
+                objAsiento.Transcode = "NOM";
+
+                objLines = new csJDT1();
+                objLines.Account = "_SYS00000010010";
+                objLines.Debit = 800;
+                objLines.ShortName = "CEMP-00009";
+                objLines.Project = "PROY-CA";
+                objLines.OcrCode1 = "ADM-ALM";
+                objAsiento.ListDet.Add(objLines);
+
+                objLines = new csJDT1();
+                objLines.Account = "_SYS00000010148";
+                objLines.Debit = 400;
+                objLines.ShortName = "CEMP-00009";
+                objLines.Project = "PROY-CNBS";
+                objLines.OcrCode1 = "ADM-GG";
+                objAsiento.ListDet.Add(objLines);
+
+                objLines = new csJDT1();
+                objLines.Account = "_SYS00000009928";
+                objLines.Credit = 1200.00;
+                objLines.Project = "PROY-GV";
+                objLines.OcrCode1 = "ADM-IT";
+                objAsiento.ListDet.Add(objLines);
+
+                if(oSAP.AddJournalEntries(ref objAsiento))
+                {
+                    this.txtTransId1.Text = objAsiento.JdtNum.ToString();
+                    MessageBox.Show("Asiento creado con éxito");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

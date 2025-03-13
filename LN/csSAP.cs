@@ -281,6 +281,61 @@ namespace LN
             }
         }
 
+        public bool AddJournalEntries(ref csOJDT objAsiento)
+        {
+            try
+            {
+                SAPbobsCOM.JournalEntries oJE = (SAPbobsCOM.JournalEntries)oCompany.GetBusinessObject(BoObjectTypes.oJournalEntries);
+
+                oJE.ReferenceDate = ToDate(objAsiento.RefDate);
+                oJE.TaxDate = ToDate(objAsiento.TaxDate);
+                oJE.DueDate = ToDate(objAsiento.DueDate);
+                oJE.Memo = objAsiento.Memo;
+                if(objAsiento.Indicator != null && objAsiento.Indicator != "") oJE.Indicator = objAsiento.Indicator;
+                if (objAsiento.Project != null && objAsiento.Project != "") oJE.ProjectCode = objAsiento.Project;
+                if (objAsiento.Transcode != null && objAsiento.Transcode != "") oJE.TransactionCode = objAsiento.Transcode;
+                oJE.Reference = objAsiento.Ref1;
+                oJE.Reference2 = objAsiento.Ref2;
+                oJE.Reference3 = objAsiento.Ref3;
+
+                foreach(csJDT1 objLines in objAsiento.ListDet)
+                {
+                    oJE.Lines.AccountCode = objLines.Account;
+                    oJE.Lines.ShortName = objLines.ShortName;
+                    oJE.Lines.Debit = Double.Parse(objLines.Debit == null ? "0" : objLines.Debit.ToString());
+                    oJE.Lines.Credit = Double.Parse(objLines.Credit == null ? "0" : objLines.Credit.ToString());
+                    oJE.Lines.FCDebit = Double.Parse(objLines.FCDebit == null ? "0" : objLines.FCDebit.ToString());
+                    oJE.Lines.FCCredit = Double.Parse(objLines.FCCredit == null ? "0" : objLines.FCCredit.ToString());
+                    oJE.Lines.FCCurrency = objLines.FCCurrency;
+                    oJE.Lines.ProjectCode = objLines.Project;
+                    oJE.Lines.CostingCode = objLines.OcrCode1;
+                    oJE.Lines.CostingCode2 = objLines.OcrCode2;
+                    oJE.Lines.CostingCode3 = objLines.OcrCode3;
+                    oJE.Lines.CostingCode4 = objLines.OcrCode4;
+                    oJE.Lines.CostingCode5 = objLines.OcrCode5;
+                }
+
+                iRet = oJE.Add();
+
+                if (iRet == 0)
+                {
+                    objAsiento.JdtNum = Int32.Parse(oCompany.GetNewObjectKey());
+                    Release(oJE);
+                    return true;
+                }
+                else
+                {
+                    oCompany.GetLastError(out iErrCod, out sErrMsg);
+                    Release(oJE);
+                    throw new Exception(String.Concat(iErrCod, ": ", sErrMsg));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Release(object obj)
         {
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
