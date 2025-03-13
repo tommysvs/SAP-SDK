@@ -23,7 +23,7 @@ namespace BE
         public string U_CAI { get; set; }
         public string U_Fecha_Vence_Cai { get; set; }
 
-        List<csCRD1> ListDirec = new List<csCRD1>();
-        List<csOCPR> ListCont = new List<csOCPR>();
+        public List<csCRD1> ListDirec = new List<csCRD1>();
+        public List<csOCPR> ListCont = new List<csOCPR>();
     }
 }

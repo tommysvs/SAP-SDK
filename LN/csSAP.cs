@@ -218,10 +218,11 @@ namespace LN
         {
             try
             {
-                SAPbobsCOM.BusinessPartners oBP = oCompany.GetBusinessObject(BoObjectTypes.oBusinessPartnerGroups);
+                SAPbobsCOM.BusinessPartners oBP = (SAPbobsCOM.BusinessPartners)oCompany.GetBusinessObject(BoObjectTypes.oBusinessPartners);
 
                 oBP.Series = objBP.Series;
-                oBP.CardCode = objBP.CardCode;
+                //oBP.CardCode = objBP.CardCode;
+                oBP.CardName = objBP.CardName;
                 oBP.CardType = objBP.CardType == "C" ? BoCardTypes.cCustomer : objBP.CardType == "S" ? BoCardTypes.cSupplier : BoCardTypes.cLid;
                 oBP.GroupCode = objBP.GroupCode;
                 oBP.FederalTaxID = objBP.LicTradNum;
@@ -233,7 +234,32 @@ namespace LN
                 oBP.MailAddress = objBP.E_Mail;
                 oBP.UserFields.Fields.Item("U_CAI").Value = objBP.U_CAI;
                 if(objBP.U_Fecha_Vence_Cai != null)
-                    oBP.UserFields.Fields.Item("U_Fecha_Vence_Cai").Value = objBP.U_Fecha_Vence_Cai;
+                    oBP.UserFields.Fields.Item("U_Fecha_Vence_Cai").Value = ToDate(objBP.U_Fecha_Vence_Cai);
+
+                //Direcciones
+                foreach(csCRD1 objCRD1 in objBP.ListDirec)
+                {
+                    oBP.Addresses.AddressName = objCRD1.Address;
+                    oBP.Addresses.AddressName2 = objCRD1.Address2;
+                    oBP.Addresses.Street = objCRD1.Street;
+                    oBP.Addresses.Block = objCRD1.Block;
+                    oBP.Addresses.City = objCRD1.City;
+                    if(objCRD1.State != null) oBP.Addresses.State = objCRD1.State;
+                    if(objCRD1.Country != null) oBP.Addresses.Country = objCRD1.Country;
+                    oBP.Addresses.AddressType = objCRD1.AdresType == "B" ? BoAddressType.bo_BillTo : BoAddressType.bo_ShipTo;
+                    oBP.Addresses.Add();
+                }
+
+                //Contactos
+                foreach(csOCPR objOCPR in objBP.ListCont)
+                {
+                    oBP.ContactEmployees.Name = objOCPR.Name;
+                    oBP.ContactEmployees.FirstName = objOCPR.FirstName;
+                    oBP.ContactEmployees.MiddleName = objOCPR.MiddleName;
+                    oBP.ContactEmployees.LastName = objOCPR.LastName;
+                    oBP.ContactEmployees.MobilePhone = objOCPR.Cellular;
+                    oBP.ContactEmployees.Add();
+                }
 
                 iRet = oBP.Add();
 
@@ -258,6 +284,23 @@ namespace LN
         public void Release(object obj)
         {
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+        }
+
+        public static DateTime ToDate(string sFecha)
+        {
+            try
+            {
+                //20250313
+                //01234567
+
+                DateTime dt = DateTime.Parse(sFecha.Substring(6, 2) + "/" + sFecha.Substring(4, 2) + "/" + sFecha.Substring(0, 4));
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -25,5 +25,22 @@ namespace GUI
                 Combo.SelectedIndex = 0;
             }
         }
+
+        public static DateTime ToDate(string sFecha)
+        {
+            try
+            {
+                //20250313
+                //01234567
+
+                DateTime dt = DateTime.Parse(sFecha.Substring(6, 2) + "/" + sFecha.Substring(4, 2) + "/" + sFecha.Substring(0, 4));
+
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        } 
     }
 }

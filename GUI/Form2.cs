@@ -252,7 +252,49 @@ namespace GUI
         {
             try
             {
+                csOCPR objCont;
+                csCRD1 objDirecc;
+                csOCRD objBP = new csOCRD();
 
+                objBP.Series = Int32.Parse(this.cbSerieBP.SelectedValue.ToString());
+                objBP.CardType = this.cbTipoBP.SelectedIndex == 0 ? "C" : 
+                                 this.cbTipoBP.SelectedIndex == 1 ? "S" : "L";
+                objBP.CardName = this.txtNombreBP.Text;
+                objBP.LicTradNum = this.txtRTNBP.Text;
+                objBP.GroupCode = Int32.Parse(this.cbGrupoBP.SelectedValue.ToString());
+                objBP.Currency = this.cbMonedaBP.SelectedValue.ToString();
+                objBP.U_CAI = "abc";
+                objBP.U_Fecha_Vence_Cai = "20251303";
+
+                objCont = new csOCPR();
+                objCont.Name = "Cont1";
+                objCont.FirstName = "Tom1";
+                objBP.ListCont.Add(objCont);
+
+                objCont = new csOCPR();
+                objCont.Name = "Cont2";
+                objCont.FirstName = "Tom2";
+                objBP.ListCont.Add(objCont);
+
+                objDirecc = new csCRD1();
+                objDirecc.Address = "FISCAL";
+                objDirecc.Address2 = "Avenida Vega 355";
+                objDirecc.Country = "HN";
+                objDirecc.AdresType = "B";
+                objBP.ListDirec.Add(objDirecc);
+
+                objDirecc = new csCRD1();
+                objDirecc.Address = "ALMACEN";
+                objDirecc.Address2 = "Avenida Alonzo 877";
+                objDirecc.Country = "HN";
+                objDirecc.AdresType = "S";
+                objBP.ListDirec.Add(objDirecc);
+
+                if(oSAP.AddBusinessPartners(ref objBP))
+                {
+                    this.txtCodigoBP.Text = objBP.CardCode;
+                    MessageBox.Show("Socio de negocios creado con éxito");
+                }
             }
             catch (Exception ex)
             {
