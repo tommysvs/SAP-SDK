@@ -1,0 +1,263 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using SAPbobsCOM;
+using BE;
+
+namespace LN
+{
+    public class csSAP
+    {
+        public static SAPbobsCOM.Company oCompany;
+        public static int iRet = 0;
+        public static int iErrCod = 0;
+        public static string sErrMsg = "";
+
+        public bool ConectarSAP(csCompany objCompany)
+        {
+            try
+            {
+                if(oCompany == null || oCompany.Connected)
+                {
+                    oCompany = new Company();
+                    oCompany.Server = objCompany.ServerBD;
+                    oCompany.DbUserName = objCompany.UserBD;
+                    oCompany.DbPassword = objCompany.PwBD;
+                    oCompany.CompanyDB = objCompany.NameBD;
+                    if(objCompany.ServerLic != "") 
+                        oCompany.LicenseServer = objCompany.ServerLic;
+                    oCompany.UserName = objCompany.UserSAP;
+                    oCompany.Password = objCompany.PwSAP;
+
+                    switch(objCompany.ServerType)
+                    {
+                        case 0:
+                            oCompany.DbServerType = BoDataServerTypes.dst_HANADB;
+                            break;
+                        case 1:
+                            oCompany.DbServerType = BoDataServerTypes.dst_MSSQL2016;
+                            break;
+                    }
+
+                    oCompany.language = BoSuppLangs.ln_Spanish_La;
+
+                    iRet = oCompany.Connect();
+
+                    if (iRet == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out iErrCod, out sErrMsg);
+                        throw new Exception(String.Concat(iErrCod, ": ", sErrMsg));
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool DesconectarSAP(csCompany objCompany)
+        {
+            try
+            {
+                if(oCompany != null && oCompany.Connected)
+                {
+                    oCompany.Disconnect();
+                    return true;
+                }else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool AddItems(ref csOITM objOITM)
+        {
+            try
+            {
+                SAPbobsCOM.Items oItems = oCompany.GetBusinessObject(BoObjectTypes.oItems);
+
+                if (oItems.GetByKey(objOITM.ItemCode))
+                {
+                    #region Actualizar
+
+                    oItems.Series = objOITM.Series;
+                    //oItems.ItemCode = objOITM.ItemCode;
+                    oItems.ItemName = objOITM.ItemName;
+                    oItems.ItemsGroupCode = objOITM.ItemGroupCode;
+                    oItems.InventoryItem = objOITM.InventoryItem == "Y" ? BoYesNoEnum.tYES : BoYesNoEnum.tNO;
+                    oItems.PurchaseItem = objOITM.PurchaseItem == "Y" ? BoYesNoEnum.tYES : BoYesNoEnum.tNO;
+                    oItems.SalesItem = objOITM.SalesItem == "Y" ? BoYesNoEnum.tYES : BoYesNoEnum.tNO;
+
+                    iRet = oItems.Update();
+
+                    if (iRet == 0)
+                    {
+                        objOITM.ItemCode = oCompany.GetNewObjectKey();
+                        Release(oItems);
+                        return true;
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out iErrCod, out sErrMsg);
+                        Release(oItems);
+                        throw new Exception(String.Concat(iErrCod, ": ", sErrMsg));
+                    }
+
+                    #endregion
+                }
+                else
+                {
+                    #region Crear
+
+                    oItems.Series = objOITM.Series;
+                    //oItems.ItemCode = objOITM.ItemCode;
+                    oItems.ItemName = objOITM.ItemName;
+                    oItems.ItemsGroupCode = objOITM.ItemGroupCode;
+                    oItems.InventoryItem = objOITM.InventoryItem == "Y" ? BoYesNoEnum.tYES : BoYesNoEnum.tNO;
+                    oItems.PurchaseItem = objOITM.PurchaseItem == "Y" ? BoYesNoEnum.tYES : BoYesNoEnum.tNO;
+                    oItems.SalesItem = objOITM.SalesItem == "Y" ? BoYesNoEnum.tYES : BoYesNoEnum.tNO;
+
+                    iRet = oItems.Add();
+
+                    if (iRet == 0)
+                    {
+                        objOITM.ItemCode = oCompany.GetNewObjectKey();
+                        Release(oItems);
+                        return true;
+                    }
+                    else
+                    {
+                        oCompany.GetLastError(out iErrCod, out sErrMsg);
+                        throw new Exception(String.Concat(iErrCod, ": ", sErrMsg));
+                    }
+
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool GetItems(ref csOITM objOITM)
+        {
+            try
+            {
+                SAPbobsCOM.Items oItems = oCompany.GetBusinessObject(BoObjectTypes.oItems);
+                
+                if(oItems.GetByKey(objOITM.ItemCode))
+                {
+                    objOITM.Series = oItems.Series;
+                    objOITM.ItemCode = oItems.ItemCode;
+                    objOITM.ItemName = oItems.ItemName;
+                    objOITM.ItemGroupCode = oItems.ItemsGroupCode;
+                    objOITM.InventoryItem = oItems.InventoryItem == BoYesNoEnum.tYES ? "Y" : "N";
+                    objOITM.PurchaseItem = oItems.PurchaseItem == BoYesNoEnum.tYES ? "Y" : "N";
+                    objOITM.SalesItem = oItems.SalesItem == BoYesNoEnum.tYES ? "Y" : "N";
+
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Articulo no existe en SAP");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool DeleteItems(string sItemCode)
+        {
+            try
+            {
+                SAPbobsCOM.Items oItems = oCompany.GetBusinessObject(BoObjectTypes.oItems);
+
+                if (oItems.GetByKey(sItemCode))
+                {
+                    iRet = oItems.Remove();
+
+                    if(iRet == 0)
+                    {
+                        return true;
+                    }else
+                    {
+                        oCompany.GetLastError(out iErrCod, out sErrMsg);
+                        throw new Exception(String.Concat(iErrCod, ": ", sErrMsg));
+                    }
+                }
+                else
+                {
+                    throw new Exception("Articulo no existe en SAP");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool AddBusinessPartners(ref csOCRD objBP)
+        {
+            try
+            {
+                SAPbobsCOM.BusinessPartners oBP = oCompany.GetBusinessObject(BoObjectTypes.oBusinessPartnerGroups);
+
+                oBP.Series = objBP.Series;
+                oBP.CardCode = objBP.CardCode;
+                oBP.CardType = objBP.CardType == "C" ? BoCardTypes.cCustomer : objBP.CardType == "S" ? BoCardTypes.cSupplier : BoCardTypes.cLid;
+                oBP.GroupCode = objBP.GroupCode;
+                oBP.FederalTaxID = objBP.LicTradNum;
+                oBP.Currency = objBP.Currency;
+                oBP.Phone1 = objBP.Phone1;
+                oBP.Phone2 = objBP.Phone2;
+                oBP.Cellular = objBP.Cellular;
+                oBP.Fax = objBP.Fax;
+                oBP.MailAddress = objBP.E_Mail;
+                oBP.UserFields.Fields.Item("U_CAI").Value = objBP.U_CAI;
+                if(objBP.U_Fecha_Vence_Cai != null)
+                    oBP.UserFields.Fields.Item("U_Fecha_Vence_Cai").Value = objBP.U_Fecha_Vence_Cai;
+
+                iRet = oBP.Add();
+
+                if(iRet == 0)
+                {
+                    oBP.CardCode = oCompany.GetNewObjectKey();
+                    Release(oBP);
+                    return true;
+                }else
+                {
+                    oCompany.GetLastError(out iErrCod, out sErrMsg);
+                    Release(oBP);
+                    throw new Exception(String.Concat(iErrCod, ": ", sErrMsg));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Release(object obj)
+        {
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+        }
+    }
+}
