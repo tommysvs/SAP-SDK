@@ -48,6 +48,7 @@ namespace GUI
             this.txtCodItem = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button4 = new System.Windows.Forms.Button();
             this.cbMonedaBP = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace GUI
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -124,7 +124,7 @@ namespace GUI
             this.cmbSerieItem.FormattingEnabled = true;
             this.cmbSerieItem.Location = new System.Drawing.Point(103, 14);
             this.cmbSerieItem.Name = "cmbSerieItem";
-            this.cmbSerieItem.Size = new System.Drawing.Size(156, 24);
+            this.cmbSerieItem.Size = new System.Drawing.Size(240, 24);
             this.cmbSerieItem.TabIndex = 15;
             // 
             // cmbGrpItem
@@ -132,7 +132,7 @@ namespace GUI
             this.cmbGrpItem.FormattingEnabled = true;
             this.cmbGrpItem.Location = new System.Drawing.Point(103, 101);
             this.cmbGrpItem.Name = "cmbGrpItem";
-            this.cmbGrpItem.Size = new System.Drawing.Size(156, 24);
+            this.cmbGrpItem.Size = new System.Drawing.Size(240, 24);
             this.cmbGrpItem.TabIndex = 14;
             // 
             // label4
@@ -147,7 +147,7 @@ namespace GUI
             // chbCompra
             // 
             this.chbCompra.AutoSize = true;
-            this.chbCompra.Location = new System.Drawing.Point(345, 72);
+            this.chbCompra.Location = new System.Drawing.Point(598, 68);
             this.chbCompra.Name = "chbCompra";
             this.chbCompra.Size = new System.Drawing.Size(128, 21);
             this.chbCompra.TabIndex = 11;
@@ -157,7 +157,7 @@ namespace GUI
             // chbVenta
             // 
             this.chbVenta.AutoSize = true;
-            this.chbVenta.Location = new System.Drawing.Point(345, 45);
+            this.chbVenta.Location = new System.Drawing.Point(598, 41);
             this.chbVenta.Name = "chbVenta";
             this.chbVenta.Size = new System.Drawing.Size(116, 21);
             this.chbVenta.TabIndex = 10;
@@ -167,7 +167,7 @@ namespace GUI
             // chbInventario
             // 
             this.chbInventario.AutoSize = true;
-            this.chbInventario.Location = new System.Drawing.Point(345, 18);
+            this.chbInventario.Location = new System.Drawing.Point(598, 14);
             this.chbInventario.Name = "chbInventario";
             this.chbInventario.Size = new System.Drawing.Size(143, 21);
             this.chbInventario.TabIndex = 9;
@@ -176,9 +176,15 @@ namespace GUI
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(184, 146);
+            this.button3.BackColor = System.Drawing.Color.DarkOrange;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Location = new System.Drawing.Point(235, 335);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(108, 32);
             this.button3.TabIndex = 8;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = true;
@@ -186,9 +192,15 @@ namespace GUI
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(103, 146);
+            this.button2.BackColor = System.Drawing.Color.DarkOrange;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(120, 335);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(109, 32);
             this.button2.TabIndex = 7;
             this.button2.Text = "Obtener";
             this.button2.UseVisualStyleBackColor = true;
@@ -196,9 +208,15 @@ namespace GUI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(21, 146);
+            this.button1.BackColor = System.Drawing.Color.DarkOrange;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(21, 335);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(93, 32);
             this.button1.TabIndex = 6;
             this.button1.Text = "Crear";
             this.button1.UseVisualStyleBackColor = true;
@@ -226,7 +244,7 @@ namespace GUI
             // 
             this.txtDescItem.Location = new System.Drawing.Point(103, 73);
             this.txtDescItem.Name = "txtDescItem";
-            this.txtDescItem.Size = new System.Drawing.Size(156, 22);
+            this.txtDescItem.Size = new System.Drawing.Size(240, 22);
             this.txtDescItem.TabIndex = 2;
             // 
             // label1
@@ -242,7 +260,7 @@ namespace GUI
             // 
             this.txtCodItem.Location = new System.Drawing.Point(103, 45);
             this.txtCodItem.Name = "txtCodItem";
-            this.txtCodItem.Size = new System.Drawing.Size(156, 22);
+            this.txtCodItem.Size = new System.Drawing.Size(240, 22);
             this.txtCodItem.TabIndex = 0;
             // 
             // tabPage2
@@ -280,11 +298,25 @@ namespace GUI
             this.panel2.Size = new System.Drawing.Size(761, 390);
             this.panel2.TabIndex = 20;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(542, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(26, 247);
+            this.button4.BackColor = System.Drawing.Color.DarkOrange;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(26, 338);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(97, 35);
             this.button4.TabIndex = 32;
             this.button4.Text = "Crear";
             this.button4.UseVisualStyleBackColor = true;
@@ -441,14 +473,6 @@ namespace GUI
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "tabPage5";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(336, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 1;
             // 
             // Form2
             // 
