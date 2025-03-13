@@ -61,9 +61,11 @@
   <ItemGroup>
     <Compile Include="csCompany.cs" />
     <Compile Include="csCRD1.cs" />
+    <Compile Include="csJDT1.cs" />
     <Compile Include="csOCPR.cs" />
     <Compile Include="csOCRD.cs" />
     <Compile Include="csOITM.cs" />
+    <Compile Include="csOJDT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
